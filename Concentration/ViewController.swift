@@ -11,11 +11,6 @@ class ViewController: UIViewController
 {
     //MARK: Variables
     lazy var game = Concentration(numberOfPairsOfCards: (buttons.count + 1) / 2)
-    var flipCounts = 0 {
-        didSet {
-            flipsLabel.text = "Flips: \(flipCounts)"
-        }
-    }
     
     //MARK: IBOutlet
     @IBOutlet weak var pointsLabel: UILabel!
@@ -23,10 +18,10 @@ class ViewController: UIViewController
     @IBOutlet var buttons: [UIButton]!
     
     @IBAction func touchCardButton(_ sender: UIButton) {
-        flipCounts += 1
         if let buttonIndex = buttons.firstIndex(of: sender) {
             game.chooseCard(at: buttonIndex)
             updateUIElements()
+            flipsLabel.text = "Flips: \(game.flipCounts)"
         } else {
             print("Chosen card is not in the card array")
         }
@@ -35,6 +30,7 @@ class ViewController: UIViewController
     @IBAction func touchNewGameButton(_ sender: UIButton) {
         game.getNewGame()
         updateUIElements()
+        game.flipCounts = 0
     }
     
     //MARK: updateUIElements

@@ -15,11 +15,12 @@ class Concentration
     var emojiCardDictionary = [Int: Character]()
     
     var cards = [Card]()
-    var copiedIndex : Int?
+    private var copiedIndex : Int?
     
     var totalPoints : Int = 0
-    var chosenCard  = [Int]()
+    private var chosenCard  = [Int]()
     
+    var flipCounts : Int = 0 
     
     //MARK: Initializer
     init(numberOfPairsOfCards: Int)
@@ -38,6 +39,7 @@ class Concentration
     func chooseCard(at index: Int) {
         if !cards[index].isMatch
         {
+            flipCounts += 1
             if let matchIndex = copiedIndex, matchIndex != index
             {
                 if cards[matchIndex].identifier == cards[index].identifier
@@ -67,17 +69,16 @@ class Concentration
     //MARK: Get newGame, reset all of properties, instances
     func getNewGame()
     {
-        for index in 0..<cards.count
+        for index in 0..<cards.count where cards[index].isMatch == true || cards[index].isFadeUp == true
         {
-            if cards[index].isMatch == true || cards[index].isFadeUp == true
-            {
-                cards[index].isFadeUp = false
-                cards[index].isMatch = false
-            }
+            cards[index].isFadeUp = false
+            cards[index].isMatch = false
         }
         shuffleCards()
         emojiCardDictionary.removeAll()
         theme = Array(Theme.pickRandomTheme())
+        totalPoints = 0
+        chosenCard.removeAll()
     }
     
     
@@ -110,7 +111,6 @@ class Concentration
             }
             chosenCard.append(contentsOf: [firstCard.identifier,secondCard.identifier])
         }
-        print(chosenCard)
     }
 }
 
