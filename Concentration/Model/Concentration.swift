@@ -10,6 +10,9 @@ import Foundation
 
 class Concentration
 {
+    var theme : [Character]!
+    var emojiCardDictionary = [Int: Character]()
+    
     var cards = [Card]()
     var copiedIndex : Int?
     
@@ -18,6 +21,7 @@ class Concentration
             let card = Card()
             cards += [card, card]
         }
+        self.theme = Array(Theme.pickRandomTheme())
         shuffleCards()
     }
     
@@ -46,6 +50,7 @@ class Concentration
         }
     }
     
+    //MARK: Get newGame, reset all of properties, instances
     func getNewGame() {
         for index in 0..<cards.count  {
             if cards[index].isMatch == true || cards[index].isFadeUp == true {
@@ -54,7 +59,10 @@ class Concentration
             }
         }
         shuffleCards()
+        emojiCardDictionary.removeAll()
+        theme = Array(Theme.pickRandomTheme())
     }
+    
     
     func shuffleCards() {
         var shuffleCards = [Card]()
@@ -64,6 +72,10 @@ class Concentration
             shuffleCards.append(randomValue)
         }
         self.cards = shuffleCards
+    }
+    
+    func getTheme() {
+        
     }
 }
 

@@ -53,15 +53,14 @@ class ViewController: UIViewController
         }
     }
     
-    
-    var emojiArray = ["🦇", "😱", "🙀", "😈", "🎃", "👻", "🍭", "🍬", "🍎"]
-    var emoji = [Int: String]()
+    //MARK : setEmoji
     func setEmoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiArray.count > 0 {
-            let randomIndexEmoji  = Int(arc4random_uniform(UInt32(emojiArray.count - 1)))
-            emoji[card.identifier] = emojiArray.remove(at: randomIndexEmoji)
+        print(game.emojiCardDictionary)
+        if game.emojiCardDictionary[card.identifier] == nil, game.theme.count > 0 {
+            let randomEmoji = game.theme.remove(at: Int(arc4random_uniform(UInt32(game.theme.count - 1))))
+            game.emojiCardDictionary[card.identifier] = randomEmoji
         }
-        return emoji[card.identifier] ?? "?"
+        return String(game.emojiCardDictionary[card.identifier] ?? "?")
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Card
+struct Card 
 {
     var isFadeUp = false
     var isMatch  = false
