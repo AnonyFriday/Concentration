@@ -14,6 +14,7 @@ struct Card
     var isMatch  = false
     var identifier : Int
     
+    
     static var countIdentifier = 0
     
     init() {

@@ -18,6 +18,7 @@ class ViewController: UIViewController
     }
     
     //MARK: IBOutlet
+    @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var flipsLabel: UILabel!
     @IBOutlet var buttons: [UIButton]!
     
@@ -38,6 +39,7 @@ class ViewController: UIViewController
     
     //MARK: updateUIElements
     func updateUIElements() {
+        pointsLabel.text = "Points: \(game.totalPoints)"
         for index in buttons.indices {
             let button = buttons[index]
             let card   = game.cards[index]
@@ -55,7 +57,6 @@ class ViewController: UIViewController
     
     //MARK : setEmoji
     func setEmoji(for card: Card) -> String {
-        print(game.emojiCardDictionary)
         if game.emojiCardDictionary[card.identifier] == nil, game.theme.count > 0 {
             let randomEmoji = game.theme.remove(at: Int(arc4random_uniform(UInt32(game.theme.count - 1))))
             game.emojiCardDictionary[card.identifier] = randomEmoji

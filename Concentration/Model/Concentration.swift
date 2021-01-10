@@ -10,14 +10,22 @@ import Foundation
 
 class Concentration
 {
+    //MARK: Variables
     var theme : [Character]!
     var emojiCardDictionary = [Int: Character]()
     
     var cards = [Card]()
     var copiedIndex : Int?
     
-    init(numberOfPairsOfCards: Int) {
-        for _ in 0..<numberOfPairsOfCards {
+    var totalPoints : Int = 0
+    var chosenCard  = [Int]()
+    
+    
+    //MARK: Initializer
+    init(numberOfPairsOfCards: Int)
+    {
+        for _ in 0..<numberOfPairsOfCards
+        {
             let card = Card()
             cards += [card, card]
         }
@@ -26,21 +34,26 @@ class Concentration
     }
     
     
+    //MARK: Choose Card
     func chooseCard(at index: Int) {
-        if !cards[index].isMatch {
-            if let matchIndex = copiedIndex, matchIndex != index {
-                
-                if cards[matchIndex].identifier == cards[index].identifier {
-                    
+        if !cards[index].isMatch
+        {
+            if let matchIndex = copiedIndex, matchIndex != index
+            {
+                if cards[matchIndex].identifier == cards[index].identifier
+                {
                     cards[matchIndex].isMatch = true
                     cards[index].isMatch      = true
                 }
-                
+                calculatePoint(firstCard: cards[matchIndex], secondCard: cards[index])
                 cards[index].isFadeUp         = true
                 copiedIndex                   = nil
-            } else {
-                
-                for flipDownIndex in cards.indices {
+            }
+            
+            else
+            {
+                for flipDownIndex in cards.indices
+                {
                     cards[flipDownIndex].isFadeUp = false
                 }
                 
@@ -50,10 +63,14 @@ class Concentration
         }
     }
     
+    
     //MARK: Get newGame, reset all of properties, instances
-    func getNewGame() {
-        for index in 0..<cards.count  {
-            if cards[index].isMatch == true || cards[index].isFadeUp == true {
+    func getNewGame()
+    {
+        for index in 0..<cards.count
+        {
+            if cards[index].isMatch == true || cards[index].isFadeUp == true
+            {
                 cards[index].isFadeUp = false
                 cards[index].isMatch = false
             }
@@ -64,9 +81,12 @@ class Concentration
     }
     
     
-    func shuffleCards() {
+    //MARK: Shuffle Card
+    func shuffleCards()
+    {
         var shuffleCards = [Card]()
-        while cards.count > 0 {
+        while cards.count > 0
+        {
             let randomIndex = Int(arc4random_uniform(UInt32(cards.count - 1)))
             let randomValue = cards.remove(at: randomIndex)
             shuffleCards.append(randomValue)
@@ -74,8 +94,23 @@ class Concentration
         self.cards = shuffleCards
     }
     
-    func getTheme() {
-        
+    
+    //MARK: calculatePoints
+    func calculatePoint(firstCard: Card, secondCard: Card)
+    {
+        switch firstCard.identifier == secondCard.identifier
+        {
+        case true:
+            totalPoints += 2
+        case false:
+            if chosenCard.contains(firstCard.identifier) || chosenCard.contains(secondCard.identifier)
+            {
+                let minusPoint = chosenCard.filter { $0 == firstCard.identifier || $0 == secondCard.identifier }.count
+                totalPoints -= minusPoint
+            }
+            chosenCard.append(contentsOf: [firstCard.identifier,secondCard.identifier])
+        }
+        print(chosenCard)
     }
 }
 
