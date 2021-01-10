@@ -21,7 +21,7 @@ class ViewController: UIViewController
         if let buttonIndex = buttons.firstIndex(of: sender) {
             game.chooseCard(at: buttonIndex)
             updateUIElements()
-            flipsLabel.text = "Flips: \(game.flipCounts)"
+            
         } else {
             print("Chosen card is not in the card array")
         }
@@ -30,12 +30,14 @@ class ViewController: UIViewController
     @IBAction func touchNewGameButton(_ sender: UIButton) {
         game.getNewGame()
         updateUIElements()
-        game.flipCounts = 0
     }
+    
     
     //MARK: updateUIElements
     func updateUIElements() {
         pointsLabel.text = "Points: \(game.totalPoints)"
+        flipsLabel.text = "Flips: \(game.flipCounts)"
+        
         for index in buttons.indices {
             let button = buttons[index]
             let card   = game.cards[index]
@@ -51,7 +53,8 @@ class ViewController: UIViewController
         }
     }
     
-    //MARK : setEmoji
+    
+    //MARK: setEmoji
     func setEmoji(for card: Card) -> String {
         if game.emojiCardDictionary[card.identifier] == nil, game.theme.count > 0 {
             let randomEmoji = game.theme.remove(at: Int(arc4random_uniform(UInt32(game.theme.count - 1))))

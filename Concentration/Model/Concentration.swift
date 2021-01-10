@@ -20,7 +20,7 @@ class Concentration
     var totalPoints : Int = 0
     private var chosenCard  = [Int]()
     
-    var flipCounts : Int = 0 
+    var flipCounts : Int = 0
     
     //MARK: Initializer
     init(numberOfPairsOfCards: Int)
@@ -78,6 +78,7 @@ class Concentration
         emojiCardDictionary.removeAll()
         theme = Array(Theme.pickRandomTheme())
         totalPoints = 0
+        flipCounts  = 0
         chosenCard.removeAll()
     }
     
