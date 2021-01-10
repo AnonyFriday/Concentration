@@ -1,9 +1,19 @@
+import UIKit
 
-import Foundation
-
-
-enum Theme : String, CaseIterable{
+enum Theme : String, CaseIterable {
     case halloween = "🎃👻💀👺👹👽🤖🎃😡🧟‍♂️"
-    case animal    = "🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨"
-    case sport     = "🏹🎣🥋🛹🪃🛷🏋️‍♀️🤸🏊‍♂️🧗"
+    case animals    = "🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨"
+    case sports     = "🏹🎣🥋🛹🪃🛷🏋️‍♀️🤸🏊‍♂️🧗"
+    case fruits     = "🍏🍐🍊🍋🍌🍉🍇🍓🫐🍈"
+    case food       = "🥪🥙🧆🌭🍕🍟🫔🍲🍙🍘"
+    case devices    = "🗜📸📟🧭📡🧯🛢🔋⏲📻"
+    case flags      = "🏳️‍🌈🏳️‍⚧️🇦🇩🇦🇼🇦🇲🇦🇸🇧🇩🇧🇧🇧🇴🇧🇹"
+    case pictographs = "🀙🀚🀛🀜🀝🀞🀟🀠🀡🀢🀣🀤🀥🀦🀧🀨"
+    case transports = "🚗🚕🚙🚌🚎🏎🚓🚜🚛🚚🛻🚐🚒"
+    
+    static func pickRandomTheme() -> String {
+        let randomCase = Int(arc4random_uniform(UInt32(Theme.allCases.count - 1)))
+        return Theme.allCases[randomCase].rawValue
+    }
+    
 }
