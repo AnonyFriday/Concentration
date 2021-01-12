@@ -30,6 +30,7 @@
 		5C795A7025A931E700514D45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C795A8225A9AF6800514D45 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		5C795A8525A9AF7500514D45 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5C8F92C425AC7E6F00CBA9CF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5C917C3325AAF5600027DB8B /* VUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VUButton.swift; sourceTree = "<group>"; };
 		5C9D2BDC25AACE6900D07DE1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +51,7 @@
 			children = (
 				5C795A6125A931E600514D45 /* Concentration */,
 				5C795A6025A931E600514D45 /* Products */,
+				5C8F92C325AC7E6F00CBA9CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +85,14 @@
 				5C795A6D25A931E700514D45 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5C8F92C325AC7E6F00CBA9CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C8F92C425AC7E6F00CBA9CF /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5C917C3625AAF59A0027DB8B /* Custom Views */ = {

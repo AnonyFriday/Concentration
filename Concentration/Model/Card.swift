@@ -14,14 +14,13 @@ struct Card
     var isMatch  = false
     var identifier : Int
     
-    
-    static var countIdentifier = 0
+    private static var countIdentifier = 0
     
     init() {
         self.identifier = Card.getIdentifier()
     }
     
-    static func getIdentifier() -> Int {
+    private static func getIdentifier() -> Int {
         countIdentifier += 1
         return countIdentifier
     }

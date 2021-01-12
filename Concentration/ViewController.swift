@@ -10,31 +10,37 @@ import UIKit
 class ViewController: UIViewController
 {
     //MARK: Variables
-    lazy var game = Concentration(numberOfPairsOfCards: (buttons.count + 1) / 2)
+    private lazy var game = Concentration(numberOfPairsOfCards: (buttons.count + 1) / 2)
+    
+    var numberOfPairsOfCards: Int {
+        get {
+            return (buttons.count + 1)
+        }
+    }
     
     //MARK: IBOutlet
-    @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var flipsLabel: UILabel!
-    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet private weak var pointsLabel: UILabel!
+    @IBOutlet private weak var flipsLabel: UILabel!
+    @IBOutlet private var buttons: [UIButton]!
     
-    @IBAction func touchCardButton(_ sender: UIButton) {
+    
+    @IBAction private func touchCardButton(_ sender: UIButton) {
         if let buttonIndex = buttons.firstIndex(of: sender) {
             game.chooseCard(at: buttonIndex)
             updateUIElements()
-            
         } else {
             print("Chosen card is not in the card array")
         }
     }
     
-    @IBAction func touchNewGameButton(_ sender: UIButton) {
+    @IBAction private func touchNewGameButton(_ sender: UIButton) {
         game.getNewGame()
         updateUIElements()
     }
     
     
     //MARK: updateUIElements
-    func updateUIElements() {
+    private func updateUIElements() {
         pointsLabel.text = "Points: \(game.totalPoints)"
         flipsLabel.text = "Flips: \(game.flipCounts)"
         
@@ -55,7 +61,7 @@ class ViewController: UIViewController
     
     
     //MARK: setEmoji
-    func setEmoji(for card: Card) -> String {
+    private func setEmoji(for card: Card) -> String {
         if game.emojiCardDictionary[card.identifier] == nil, game.theme.count > 0 {
             let randomEmoji = game.theme.remove(at: Int(arc4random_uniform(UInt32(game.theme.count - 1))))
             game.emojiCardDictionary[card.identifier] = randomEmoji

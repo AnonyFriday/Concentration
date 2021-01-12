@@ -14,8 +14,27 @@ class Concentration
     var theme : [Character]!
     var emojiCardDictionary = [Int: Character]()
     
-    var cards = [Card]()
-    private var copiedIndex : Int?
+    private(set) var cards = [Card]()
+    private var copiedIndex : Int? {
+        get {
+            var foundIndex: Int?
+            for index in cards.indices {
+                if cards[index].isFadeUp {
+                    if foundIndex == nil {
+                        foundIndex = index
+                    } else {
+                        return nil
+                    }
+                }
+            }
+            return foundIndex
+        }
+        set(newValue) {
+            for index in cards.indices {
+                cards[index].isFadeUp = (index == newValue)
+            }
+        }
+    }
     
     var totalPoints : Int = 0
     private var chosenCard  = [Int]()
@@ -25,6 +44,7 @@ class Concentration
     //MARK: Initializer
     init(numberOfPairsOfCards: Int)
     {
+        assert(numberOfPairsOfCards > 0, "Concentration.init(\(numberOfPairsOfCards)): you must have at least 1 pair of cards")
         for _ in 0..<numberOfPairsOfCards
         {
             let card = Card()
@@ -37,6 +57,7 @@ class Concentration
     
     //MARK: Choose Card
     func chooseCard(at index: Int) {
+        assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         if !cards[index].isMatch
         {
             flipCounts += 1
@@ -49,18 +70,11 @@ class Concentration
                 }
                 calculatePoint(firstCard: cards[matchIndex], secondCard: cards[index])
                 cards[index].isFadeUp         = true
-                copiedIndex                   = nil
             }
             
             else
             {
-                for flipDownIndex in cards.indices
-                {
-                    cards[flipDownIndex].isFadeUp = false
-                }
-                
                 copiedIndex = index
-                cards[index].isFadeUp = true
             }
         }
     }
