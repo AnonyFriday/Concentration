@@ -1,18 +1,21 @@
 import UIKit
 
-enum Theme : String, CaseIterable {
-    case halloween = "🎃👻💀👺👹👽🤖🎃😡🧟‍♂️"
-    case animals    = "🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨"
-    case sports     = "🏹🎣🥋🛹🪃🛷🏋️‍♀️🤸🏊‍♂️🧗"
-    case fruits     = "🍏🍐🍊🍋🍌🍉🍇🍓🫐🍈"
-    case food       = "🥪🥙🧆🌭🍕🍟🫔🍲🍙🍘"
-    case devices    = "🗜📸📟🧭📡🧯🛢🔋⏲📻"
-    case flags      = "🏳️‍🌈🏳️‍⚧️🇦🇩🇦🇼🇦🇲🇦🇸🇧🇩🇧🇧🇧🇴🇧🇹"
-    case pictographs = "🀙🀚🀛🀜🀝🀞🀟🀠🀡🀢🀣🀤🀥🀦🀧🀨"
-    case transports = "🚗🚕🚙🚌🚎🏎🚓🚜🚛🚚🛻🚐🚒"
+enum Theme : String, CaseIterable
+{
+    case halloween      = "🎃👻💀👺👹👽🤖🎃😡🧟‍♂️"
+    case animals        = "🐶🐱🐭🐹🐰🦊🐻🐼🐻‍❄️🐨"
+    case sports         = "🏹🎣🥋🛹🪃🛷🏋️‍♀️🤸🏊‍♂️🧗"
+    case fruits         = "🍏🍐🍊🍋🍌🍉🍇🍓🫐🍈"
+    case food           = "🥪🥙🧆🌭🍕🍟🫔🍲🍙🍘"
+    case devices        = "🗜📸📟🧭📡🧯🛢🔋⏲📻"
+    case flags          = "🏳️‍🌈🏳️‍⚧️🇦🇩🇦🇼🇦🇲🇦🇸🇧🇩🇧🇧🇧🇴🇧🇹"
+    case pictographs    = "🀙🀚🀛🀜🀝🀞🀟🀠🀡🀢🀣🀤🀥🀦🀧🀨"
+    case transports     = "🚗🚕🚙🚌🚎🏎🚓🚜🚛🚚🛻🚐🚒"
     
-    static func pickRandomTheme() -> String {
-        let randomCase = Int(arc4random_uniform(UInt32(Theme.allCases.count - 1)))
+    
+    static func pickRandomTheme() -> String
+    {
+        let randomCase = Theme.allCases.count.arc4Random()
         return Theme.allCases[randomCase].rawValue
     }
     

@@ -17,6 +17,7 @@
 		5C795A8625A9AF7500514D45 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C795A8525A9AF7500514D45 /* Card.swift */; };
 		5C917C3425AAF5600027DB8B /* VUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C917C3325AAF5600027DB8B /* VUButton.swift */; };
 		5C9D2BDD25AACE6900D07DE1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D2BDC25AACE6900D07DE1 /* Theme.swift */; };
+		5CB6F9C025AE300600CE16CD /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		5C8F92C425AC7E6F00CBA9CF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5C917C3325AAF5600027DB8B /* VUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VUButton.swift; sourceTree = "<group>"; };
 		5C9D2BDC25AACE6900D07DE1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				5C795A7025A931E700514D45 /* Info.plist */,
 				5C9D2BDA25AACE4B00D07DE1 /* Model */,
 				5C917C3625AAF59A0027DB8B /* Custom Views */,
+				5CB6F9C225AE300A00CE16CD /* Extensions */,
 			);
 			path = Concentration;
 			sourceTree = "<group>";
@@ -111,6 +114,14 @@
 				5C9D2BDC25AACE6900D07DE1 /* Theme.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5CB6F9C225AE300A00CE16CD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				5C917C3425AAF5600027DB8B /* VUButton.swift in Sources */,
 				5C795A6325A931E600514D45 /* AppDelegate.swift in Sources */,
 				5C795A6525A931E600514D45 /* SceneDelegate.swift in Sources */,
+				5CB6F9C025AE300600CE16CD /* Int+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

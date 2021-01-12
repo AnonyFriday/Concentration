@@ -38,8 +38,8 @@ class Concentration
     
     var totalPoints : Int = 0
     private var chosenCard  = [Int]()
-    
     var flipCounts : Int = 0
+    
     
     //MARK: Initializer
     init(numberOfPairsOfCards: Int)
@@ -98,13 +98,12 @@ class Concentration
     
     
     //MARK: Shuffle Card
-    func shuffleCards()
+    private func shuffleCards()
     {
         var shuffleCards = [Card]()
         while cards.count > 0
         {
-            let randomIndex = Int(arc4random_uniform(UInt32(cards.count - 1)))
-            let randomValue = cards.remove(at: randomIndex)
+            let randomValue = cards.remove(at: cards.count.arc4Random())
             shuffleCards.append(randomValue)
         }
         self.cards = shuffleCards
