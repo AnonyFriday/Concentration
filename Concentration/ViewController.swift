@@ -18,6 +18,7 @@ class ViewController: UIViewController
         }
     }
     
+    
     //MARK: IBOutlet
     @IBOutlet private weak var pointsLabel: UILabel!
     @IBOutlet private weak var flipsLabel: UILabel!
@@ -49,12 +50,9 @@ class ViewController: UIViewController
             let card   = game.cards[index]
             
             if card.isFadeUp {
-                button.setTitle(setEmoji(for: card), for: .normal)
-                button.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                button.setButtonState(backgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), title: setEmoji(for: card), for: .normal, isEnabled: true)
             } else {
-                button.setTitle("", for: .normal)
-                button.backgroundColor = card.isMatch ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1)
-                button.isEnabled       = card.isMatch ? false : true
+                button.setButtonState(backgroundColor: card.isMatch ? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0) : #colorLiteral(red: 0.7254902124, green: 0.4784313738, blue: 0.09803921729, alpha: 1), title: "", for: .normal, isEnabled: card.isMatch ? false : true)
             }
         }
     }

@@ -15,6 +15,7 @@
 		5C795A6F25A931E700514D45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C795A6D25A931E700514D45 /* LaunchScreen.storyboard */; };
 		5C795A8325A9AF6800514D45 /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C795A8225A9AF6800514D45 /* Concentration.swift */; };
 		5C795A8625A9AF7500514D45 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C795A8525A9AF7500514D45 /* Card.swift */; };
+		5C9001C725B03A1000EBB9F2 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9001C625B03A1000EBB9F2 /* UIButton+Ext.swift */; };
 		5C917C3425AAF5600027DB8B /* VUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C917C3325AAF5600027DB8B /* VUButton.swift */; };
 		5C9D2BDD25AACE6900D07DE1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D2BDC25AACE6900D07DE1 /* Theme.swift */; };
 		5CB6F9C025AE300600CE16CD /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */; };
@@ -32,6 +33,7 @@
 		5C795A8225A9AF6800514D45 /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = "<group>"; };
 		5C795A8525A9AF7500514D45 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		5C8F92C425AC7E6F00CBA9CF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5C9001C625B03A1000EBB9F2 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		5C917C3325AAF5600027DB8B /* VUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VUButton.swift; sourceTree = "<group>"; };
 		5C9D2BDC25AACE6900D07DE1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */,
+				5C9001C625B03A1000EBB9F2 /* UIButton+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 			files = (
 				5C795A6725A931E600514D45 /* ViewController.swift in Sources */,
 				5C795A8325A9AF6800514D45 /* Concentration.swift in Sources */,
+				5C9001C725B03A1000EBB9F2 /* UIButton+Ext.swift in Sources */,
 				5C795A8625A9AF7500514D45 /* Card.swift in Sources */,
 				5C9D2BDD25AACE6900D07DE1 /* Theme.swift in Sources */,
 				5C917C3425AAF5600027DB8B /* VUButton.swift in Sources */,

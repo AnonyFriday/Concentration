@@ -18,18 +18,20 @@ class Concentration
     private var copiedIndex : Int? {
         get {
             var foundIndex: Int?
+            print(cards)
             for index in cards.indices {
                 if cards[index].isFadeUp {
-                    if foundIndex == nil {
-                        foundIndex = index
-                    } else {
-                        return nil
-                    }
+                    
+                    //Whenever you found 2 times isFaceup = true, then you return the foundIndex = nil
+                    guard foundIndex == nil else { return nil}
+                    foundIndex = index
                 }
             }
             return foundIndex
         }
         set(newValue) {
+
+            // set the isFadeUp = true whenever the value set for copiedIndex equals to the index in the card
             for index in cards.indices {
                 cards[index].isFadeUp = (index == newValue)
             }
@@ -61,6 +63,7 @@ class Concentration
         if !cards[index].isMatch
         {
             flipCounts += 1
+            // if we have the copiedIndex
             if let matchIndex = copiedIndex, matchIndex != index
             {
                 if cards[matchIndex].identifier == cards[index].identifier
@@ -72,6 +75,7 @@ class Concentration
                 cards[index].isFadeUp         = true
             }
             
+            // if we don't have the copied index
             else
             {
                 copiedIndex = index
