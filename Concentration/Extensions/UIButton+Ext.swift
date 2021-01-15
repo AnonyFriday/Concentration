@@ -8,11 +8,12 @@
 import UIKit
 
 
-extension UIButton {
+extension UIButton
+{
     func setButtonState(backgroundColor: UIColor?,
                         title: String?, for state: UIControl.State,
-                        isEnabled: Bool) {
-        
+                        isEnabled: Bool)
+    {
         self.backgroundColor    = backgroundColor
         self.setTitle(title, for: state)
         self.isEnabled          = isEnabled

@@ -60,11 +60,11 @@ class ViewController: UIViewController
     
     //MARK: setEmoji
     private func setEmoji(for card: Card) -> String {
-        if game.emojiCardDictionary[card.identifier] == nil, game.theme.count > 0 {
+        if game.emojiCardDictionary[card] == nil, game.theme.count > 0 {
             let randomEmoji = game.theme.remove(at: game.theme.count.arc4Random())
-            game.emojiCardDictionary[card.identifier] = randomEmoji
+            game.emojiCardDictionary[card] = randomEmoji
         }
-        return String(game.emojiCardDictionary[card.identifier] ?? "?")
+        return String(game.emojiCardDictionary[card] ?? "?")
     }
 }
 

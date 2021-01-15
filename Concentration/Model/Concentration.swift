@@ -7,12 +7,11 @@
 
 import Foundation
 
-
-class Concentration
+struct Concentration
 {
     //MARK: Variables
     var theme : [Character]!
-    var emojiCardDictionary = [Int: Character]()
+    var emojiCardDictionary = [Card:Character]()
     
     private(set) var cards = [Card]()
     private var copiedIndex : Int? {
@@ -39,7 +38,7 @@ class Concentration
     }
     
     var totalPoints : Int = 0
-    private var chosenCard  = [Int]()
+    private var chosenCard  = [Card]()
     var flipCounts : Int = 0
     
     
@@ -58,7 +57,7 @@ class Concentration
     
     
     //MARK: Choose Card
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         assert(cards.indices.contains(index), "Concentration.chooseCard(at: \(index)): chosen index not in the cards")
         if !cards[index].isMatch
         {
@@ -66,7 +65,7 @@ class Concentration
             // if we have the copiedIndex
             if let matchIndex = copiedIndex, matchIndex != index
             {
-                if cards[matchIndex].identifier == cards[index].identifier
+                if cards[matchIndex] == cards[index]
                 {
                     cards[matchIndex].isMatch = true
                     cards[index].isMatch      = true
@@ -85,7 +84,7 @@ class Concentration
     
     
     //MARK: Get newGame, reset all of properties, instances
-    func getNewGame()
+    mutating func getNewGame()
     {
         for index in 0..<cards.count where cards[index].isMatch == true || cards[index].isFadeUp == true
         {
@@ -102,7 +101,7 @@ class Concentration
     
     
     //MARK: Shuffle Card
-    private func shuffleCards()
+    mutating private func shuffleCards()
     {
         var shuffleCards = [Card]()
         while cards.count > 0
@@ -115,19 +114,19 @@ class Concentration
     
     
     //MARK: calculatePoints
-    func calculatePoint(firstCard: Card, secondCard: Card)
+    mutating func calculatePoint(firstCard: Card, secondCard: Card)
     {
-        switch firstCard.identifier == secondCard.identifier
+        switch firstCard == secondCard
         {
         case true:
             totalPoints += 2
         case false:
-            if chosenCard.contains(firstCard.identifier) || chosenCard.contains(secondCard.identifier)
+            if chosenCard.contains(firstCard) || chosenCard.contains(secondCard)
             {
-                let minusPoint = chosenCard.filter { $0 == firstCard.identifier || $0 == secondCard.identifier }.count
+                let minusPoint = chosenCard.filter { $0 == firstCard || $0 == secondCard }.count
                 totalPoints -= minusPoint
             }
-            chosenCard.append(contentsOf: [firstCard.identifier,secondCard.identifier])
+            chosenCard.append(contentsOf: [firstCard,secondCard])
         }
     }
 }
