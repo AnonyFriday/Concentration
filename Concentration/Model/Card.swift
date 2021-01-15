@@ -12,6 +12,7 @@ struct Card : Hashable
     var isFadeUp = false
     var isMatch  = false
     private var identifier : Int
+    private static var countIdentifier = 0
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(identifier)
@@ -21,7 +22,7 @@ struct Card : Hashable
         return lhs.identifier == rhs.identifier
     }
 
-    private static var countIdentifier = 0
+    
     
     init() {
         self.identifier = Card.getIdentifier()

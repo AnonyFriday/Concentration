@@ -21,7 +21,11 @@ class ViewController: UIViewController
     
     //MARK: IBOutlet
     @IBOutlet private weak var pointsLabel: UILabel!
-    @IBOutlet private weak var flipsLabel: UILabel!
+    @IBOutlet private weak var flipsLabel: UILabel! {
+        didSet {
+            flipsLabel.applyAttributedText(string: "Flips: \(game.flipCounts)")
+        }
+    }
     @IBOutlet private var buttons: [UIButton]!
     
     
@@ -40,10 +44,11 @@ class ViewController: UIViewController
     }
     
     
+    
     //MARK: updateUIElements
     private func updateUIElements() {
         pointsLabel.text = "Points: \(game.totalPoints)"
-        flipsLabel.text = "Flips: \(game.flipCounts)"
+        flipsLabel.applyAttributedText(string: "Flips: \(game.flipCounts)")
         
         for index in buttons.indices {
             let button = buttons[index]
@@ -65,6 +70,18 @@ class ViewController: UIViewController
             game.emojiCardDictionary[card] = randomEmoji
         }
         return String(game.emojiCardDictionary[card] ?? "?")
+    }
+}
+
+extension UILabel {
+    func applyAttributedText(string: String) {
+        let attributes : [NSMutableAttributedString.Key: Any] =
+            [
+                .backgroundColor : UIColor.systemRed,
+                .foregroundColor : UIColor.white
+            ]
+        let attributedLabelText = NSMutableAttributedString(string: string, attributes: attributes)
+        self.attributedText = attributedLabelText
     }
 }
 

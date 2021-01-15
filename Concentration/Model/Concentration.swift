@@ -17,7 +17,6 @@ struct Concentration
     private var copiedIndex : Int? {
         get {
             var foundIndex: Int?
-            print(cards)
             for index in cards.indices {
                 if cards[index].isFadeUp {
                     
