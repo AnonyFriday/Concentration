@@ -15,20 +15,8 @@ struct Concentration
     
     private(set) var cards = [Card]()
     private var copiedIndex : Int? {
-        get {
-            var foundIndex: Int?
-            for index in cards.indices {
-                if cards[index].isFadeUp {
-                    
-                    //Whenever you found 2 times isFaceup = true, then you return the foundIndex = nil
-                    guard foundIndex == nil else { return nil}
-                    foundIndex = index
-                }
-            }
-            return foundIndex
-        }
+        get { cards.indices.filter { cards[$0].isFadeUp }.oneAndOnlyIndex }
         set(newValue) {
-
             // set the isFadeUp = true whenever the value set for copiedIndex equals to the index in the card
             for index in cards.indices {
                 cards[index].isFadeUp = (index == newValue)
@@ -129,5 +117,4 @@ struct Concentration
         }
     }
 }
-
 

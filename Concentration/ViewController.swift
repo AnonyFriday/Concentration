@@ -51,7 +51,7 @@ class ViewController: UIViewController
 
     //MARK: updateUIElements
     private func updateUIElements() {
-        pointsLabel.text = "Points: \(game.totalPoints)"
+        pointsLabel.applyAttributedLabelText(string: "Points: \(game.totalPoints)")
         flipsLabel.applyAttributedLabelText(string: "Flips: \(game.flipCounts)")
         
         for index in buttons.indices {

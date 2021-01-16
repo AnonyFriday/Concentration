@@ -9,10 +9,14 @@ import UIKit
 
 extension UILabel {
     func applyAttributedLabelText(string: String) {
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.systemBackground
+        shadow.shadowBlurRadius = 5
+        
         let attributes : [NSMutableAttributedString.Key: Any] =
             [
-                .backgroundColor : UIColor.systemRed,
-                .foregroundColor : UIColor.white
+                .foregroundColor : UIColor.label,
+                .shadow          : shadow,
             ]
         let attributedLabelText = NSMutableAttributedString(string: string, attributes: attributes)
         self.attributedText = attributedLabelText
