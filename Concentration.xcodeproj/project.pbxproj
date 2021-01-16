@@ -17,6 +17,7 @@
 		5C795A8625A9AF7500514D45 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C795A8525A9AF7500514D45 /* Card.swift */; };
 		5C9001C725B03A1000EBB9F2 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9001C625B03A1000EBB9F2 /* UIButton+Ext.swift */; };
 		5C9D2BDD25AACE6900D07DE1 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9D2BDC25AACE6900D07DE1 /* Theme.swift */; };
+		5CAF0EA225B2913800D4B029 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAF0EA125B2913800D4B029 /* UILabel+Ext.swift */; };
 		5CB6F9C025AE300600CE16CD /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		5C8F92C425AC7E6F00CBA9CF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5C9001C625B03A1000EBB9F2 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		5C9D2BDC25AACE6900D07DE1 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		5CAF0EA125B2913800D4B029 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 			children = (
 				5CB6F9BF25AE300600CE16CD /* Int+Ext.swift */,
 				5C9001C625B03A1000EBB9F2 /* UIButton+Ext.swift */,
+				5CAF0EA125B2913800D4B029 /* UILabel+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				5C795A8325A9AF6800514D45 /* Concentration.swift in Sources */,
 				5C9001C725B03A1000EBB9F2 /* UIButton+Ext.swift in Sources */,
 				5C795A8625A9AF7500514D45 /* Card.swift in Sources */,
+				5CAF0EA225B2913800D4B029 /* UILabel+Ext.swift in Sources */,
 				5C9D2BDD25AACE6900D07DE1 /* Theme.swift in Sources */,
 				5C795A6325A931E600514D45 /* AppDelegate.swift in Sources */,
 				5C795A6525A931E600514D45 /* SceneDelegate.swift in Sources */,
