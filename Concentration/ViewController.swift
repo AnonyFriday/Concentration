@@ -10,11 +10,11 @@ import UIKit
 class ViewController: UIViewController
 {
     //MARK: Variables
-    private lazy var game = Concentration(numberOfPairsOfCards: (buttons.count + 1) / 2)
+    private lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
     
     var numberOfPairsOfCards: Int {
         get {
-            return (buttons.count + 1)
+            return (buttons.count + 1) / 2
         }
     }
     
