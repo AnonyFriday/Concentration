@@ -23,3 +23,5 @@ Run on multiple devices ( Available only on Iphone )
 * Interface Builder
 * Extensions
 * ...
+
+This project is licensed under the terms of the MIT license.
